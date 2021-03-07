@@ -1,0 +1,17 @@
+<!--miniprogram/pages/home/home.wxml-->
+<view class="out">
+  <div class="header">
+    <z-epsoide class="epsoide" 
+        index="{{classicData.index}}" />
+    <z-like class="like" bind:Like="onLike" 
+        num="{{classicData.fav_nums}}" 
+        like="{{classicData.like_status}}"/>
+  </div>
+  <z-movie 
+      imge="{{classicData.image}}" 
+      text="{{classicData.content}}" />
+  <z-navi class="navi"
+      title="{{classicData.title}}" 
+      first="{{first}}" 
+      latest="{{latest}}"></z-navi>
+</view>

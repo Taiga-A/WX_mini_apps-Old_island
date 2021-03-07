@@ -1,0 +1,22 @@
+/* components/like/like.wxss */
+.img{
+  display: inline-block;
+  width: 32rpx;
+  height: 28rpx;
+}
+.text{
+  display: block;
+  position: relative;
+  font-size: 18rpx;
+  bottom: 8rpx;
+  line-height: 18rpx;
+  margin-left: 5rpx;
+  color: rgb(78, 78, 78);
+  /* color: rgb(255, 86, 86); */
+}
+.out{
+  padding: 10rpx;
+  display: inline-flex;
+  height: auto;
+  width: 84rpx;
+}
