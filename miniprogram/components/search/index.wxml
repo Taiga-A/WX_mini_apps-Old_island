@@ -1,0 +1,56 @@
+<!--components/search/index.wxml-->
+<view class="out">
+  <view class="header">
+    <view class="search-out">
+      <image class="icon" src="./image/search.png"></image>
+      <input type="text" class="bar" 
+          value="{{inputValue}}"
+          bindconfirm="onConfirm"
+          auto-focus="true" 
+          placeholder="书籍名称" />
+      <image class="cancel-img" 
+             bindtap="onDelete"  
+             src="./image/cancel.png"></image>
+    </view>
+    <view class="cancel" bindtap="onCancel">取消</view>
+  </view>
+<!-- 历史记录和热门搜索 -->
+  <view wx:if="{{!searching}}">
+    <view class="history">
+      <view class="title">
+        <view class="chunk"></view>
+        <text>历史搜索</text>
+      </view>
+      <view class="tags">
+        <block wx:for="{{historyWords}}" wx:key="item">
+          <z-tag bind:tapping="onConfirm" class="z-tag" text="{{item}}"></z-tag>
+        </block>
+      </view>
+    </view>
+    <view class="history hot-search">
+      <view class="title">
+        <view class="chunk"></view>
+        <text>热门搜素</text>
+      </view>
+      <view class="tags">
+        <block wx:for="{{hotWords}}" wx:key="item">
+          <z-tag bind:tapping="onConfirm" class="z-tag" text="{{item}}"></z-tag>
+        </block>
+      </view>
+    </view>
+  </view>
+<!-- 搜素结果 -->
+  <view wx:if="{{searching}}" class="books-out">
+    <block wx:for="{{dataArray}}" wx:key="id">
+      <z-book book="{{item}}" class="book" />
+    </block>
+  </view>
+<!-- 暂无更多 -->
+  <view wx:if="{{none && searching}}" class="noMore">
+    <text>暂无更多</text>
+  </view>
+  <view wx:if="{{!none && searching}}" class="noMore">
+    <text>正在加载...</text>
+  </view>
+
+</view>

@@ -1,0 +1,8 @@
+<!--components/tag/index.wxml-->
+<view bindtap="onTap" class="out tag-class">
+  <solt name="befor"></solt>
+  <text>{{text}}</text>
+  <slot name="after"></slot>
+</view>
+
+<!-- 普通样式，外部样式 -->
