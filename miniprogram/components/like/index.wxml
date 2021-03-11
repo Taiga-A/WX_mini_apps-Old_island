@@ -1,7 +1,0 @@
-<!--components/like/like.wxml-->
-<view bind:tap="onlike" class="out">
-  <image class="img" src="{{like?islike:dislike}}" />
-  <text class="text" style="{{like?likeColor:''}}"
-  >{{num>1000000?"100w+":num>100000?"10w+":num>10000?"1w+":num>999?"999+":num}}
-  </text>
-</view>

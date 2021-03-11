@@ -1,7 +1,0 @@
-{
-  "usingComponents": {
-    "z-tag":"../../components/tag/index",
-    "z-like":"../../components/like/index",
-    "z-mask":"../../components/mask/index"
-  }
-}
