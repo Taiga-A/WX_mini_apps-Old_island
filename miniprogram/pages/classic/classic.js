@@ -26,11 +26,23 @@ Page({
       })
     })
   },
-
+  //点赞
   onLike: function(event){
     let behavior = event.detail.behavior
     likeM.like(behavior,this.data.classicData.id,this.data.classicData.type)
   },
+  //改变期数
+  onClassicChange(event){
+    let index = this.data.classicData.index
+    classicM.getClassic(index,event.detail.nOrP,(res)=>{
+      this.setData({
+        classicData:res,
+        latest:classicM.isLatest(res.index),
+        first:classicM.isFirst(res.index),
+      })
+    })
+  },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成

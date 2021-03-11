@@ -7,10 +7,20 @@
         num="{{classicData.fav_nums}}" 
         like="{{classicData.like_status}}"/>
   </div>
-  <z-movie 
+  <z-movie hidden="{{classicData.type == 100}}" 
       imge="{{classicData.image}}" 
       text="{{classicData.content}}" />
-  <z-navi class="navi"
+  <z-music wx:if="{{classicData.type == 200}}" 
+      imge="{{classicData.image}}" 
+      text="{{classicData.content}}" 
+      src="{{classicData.url}}" 
+      title="{{classicData.title}}"/>
+  <z-essay hidden="{{classicData.type == 300}}" 
+      imge="{{classicData.image}}" 
+      text="{{classicData.content}}" />
+  <z-navi class="navi" 
+      bind:left="onClassicChange" 
+      bind:right="onClassicChange" 
       title="{{classicData.title}}" 
       first="{{first}}" 
       latest="{{latest}}"></z-navi>

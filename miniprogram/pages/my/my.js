@@ -1,4 +1,4 @@
-// miniprogram/pages/page1/page1.js
+// miniprogram/pages/my/my.js
 Page({
 
   /**
@@ -8,11 +8,18 @@ Page({
 
   },
 
+  getUserInfo(event){
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.getUserInfo({
+      success: data=>{
+        
+      }
+    })
   },
 
   /**

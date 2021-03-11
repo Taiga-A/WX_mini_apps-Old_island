@@ -15,7 +15,7 @@
   border-right: solid 1px;
 }
 .block2{
-  padding-left: 10rpx;
+  padding-left: 15rpx;
   display: flex;
   flex-direction: column;
   /* font-size: 30rpx;

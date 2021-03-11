@@ -23,6 +23,22 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    onLeft(){
+      if(!this.properties.latest){
+        this.triggerEvent('left',{
+          nOrP:'next',
+        },[])
+      }
+    },
+    onRight(){
+      if(!this.properties.first){
+        this.triggerEvent('right',{
+          nOrP:'previous',
+        },[])
+      }
+    },
+
+
 
   }
 })
