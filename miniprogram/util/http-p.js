@@ -52,6 +52,7 @@ class HTTP{
     }
     wx.showToast({
       title: tips[error_code],
+      icon: 'nonw'
     })
   }
 }

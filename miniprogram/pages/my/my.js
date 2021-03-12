@@ -1,25 +1,63 @@
 // miniprogram/pages/my/my.js
+import {
+  MyModel
+} from '../../models/my.js'
+
+const myM = new MyModel
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    userName: '未授权',
+    likeNum:null,
+    infoGet: false,
+    classics: [],
+    nowNum: 0,
+    isNone: false,
+  },
 
+  getLikeClassic(){
+    if(!this.data.isNone){
+      myM.getLikeClassic(this.data.nowNum)
+        .then(res=>{
+          this.setData({
+            classics: this.data.classics.concat(res),
+            nowNum: this.data.nowNum + res.length,
+          })
+          if(res.length%10 != 0 || res.length == 0){
+            this.setData({
+              isNone: true,
+            })
+          }
+        })
+    }
   },
 
   getUserInfo(event){
-
+    wx.getUserInfo({
+      success: res=>{
+        this.setData({
+          userName: res.userInfo.nickName,
+          infoGet: true,
+        })
+        myM.getLikebooksNum()
+          .then(res=>{
+            this.setData({
+              likeNum: res.count,
+            })
+          })
+        this.getLikeClassic()
+      }
+    })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.getUserInfo({
-      success: data=>{
-        
-      }
-    })
+    
   },
 
   /**
@@ -61,7 +99,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this.getLikeClassic()
   },
 
   /**

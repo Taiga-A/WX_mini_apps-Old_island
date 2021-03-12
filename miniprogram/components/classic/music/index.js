@@ -37,10 +37,18 @@ Component({
    */
   methods: {
     onPlay(event) {
+      if(!this.data.src){
+        wx.showToast({
+          title: '链接失效',
+          icon: 'none'
+        })
+        return
+      }
       if (!this.data.playing) {
         this.setData({
           playing: true
         })
+        console.log('src:' +this.data.src)
         mMgr.src = this.properties.src
         mMgr.title = this.properties.title
       } else {

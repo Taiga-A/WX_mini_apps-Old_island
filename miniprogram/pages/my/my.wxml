@@ -1,17 +1,43 @@
 <!--miniprogram/pages/my/my.wxml-->
 <view class="out">
   <image src="../../images/my/my@bg.png"></image>
-  <open-data type="userAvatarUrl" class="avatar avatar-position"/>
+  <open-data type="userAvatarUrl" class="avatar avatar-position" />
+  <view class="userName-out">
+    <text class="userName">{{userName}}</text>
+  </view>
   <view class="about-out">
     <view class="about-us">
       <image src="../../images/my/about.png"></image>
       <text class="description">关于我们</text>
     </view>
     <view class="about-us">
+      <text class="like-num">{{likeNum}}</text>
       <text class="description">喜欢的书</text>
     </view>
     <!-- 获取用户信息 -->
   </view>
-  <button open-type="getUserInfo"
+  <view class="likeClassic-out">
+    <block wx:for="{{classics}}" wx:key="content">
+      <view class="aLikeClassic-out">
+        <z-movie hidden="{{item.type == 100}}" 
+                imge="{{item.image}}" 
+                text="{{item.content}}" />
+        <z-music wx:if="{{item.type == 200}}" 
+                imge="{{item.image}}" 
+                text="{{item.content}}" 
+                src="{{item.url}}"
+                title="{{item.title}}" />
+        <z-essay hidden="{{item.type == 300}}" 
+                imge="{{item.image}}" 
+                text="{{item.content}}" />
+      </view>
+    </block>
+  </view>
+  <button wx:if="{{!infoGet}}" 
+          class="getUserInfo"
+          open-type="getUserInfo" 
           bindgetuserinfo="getUserInfo">授权</button>
+  <view class="noneText-out">
+    <text wx:if="{{isNone}}" class="noneText">没有更多了</text>
+  </view>
 </view>

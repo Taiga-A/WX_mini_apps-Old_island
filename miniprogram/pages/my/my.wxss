@@ -35,13 +35,15 @@
 }
 
 .about-out{
-  padding: 0 100rpx;
+  padding: 440rpx 100rpx 30rpx 100rpx;
+  box-shadow: 0rpx 0px 4px 2px #999;
   width:550rpx;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   position:absolute;
-  top:440rpx;
+  /* top:340rpx; */
+  /* border-bottom: solid 1px black; */
 }
 
 .about-us image{
@@ -109,4 +111,34 @@
 .test{
   background-color: red !important;
   border-radius: 15px !important;
+}
+.noneText{
+  color: #999;
+}
+.noneText-out{
+  margin-top: 100rpx;
+  padding-bottom: 100rpx;
+}
+
+.likeClassic-out{
+  position: relative;
+  bottom: 200rpx;
+}
+
+.aLikeClassic-out{
+  padding: 0rpx 0 200rpx 0;
+  margin: 400rpx 0 0 0;
+  /* border-bottom: solid 2px #999; */
+  box-shadow: 0 8rpx 6rpx 1px #999;
+}
+
+.userName-out{
+  position: relative;
+  bottom: 60rpx;
+}
+
+.getUserInfo{
+  margin-top: 200rpx;
+  /* border: solid 1px; */
+  box-shadow: 0px 0px 8rpx 2rpx #999;
 }

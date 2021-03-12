@@ -1,3 +1,7 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "z-movie":"../../components/classic/movie/index",
+    "z-music":"../../components/classic/music/index",
+    "z-essay":"../../components/classic/essay/index"
+  }
 }
